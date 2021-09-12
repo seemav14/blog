@@ -43,12 +43,12 @@ class SendEmailJob implements ShouldQueue
     public function handle()
     {
     
-        $data = ['name' => $this->details['name']];
-        // $data = ['email_token' => 'test_token'];
+        // $data = ['name' => $this->details['name']];
+        $data = ['name' => 'test'];
 
         Mail::send('emails.sendemail', $data, function($message) {
             // $message->from('vseema912@gmail.com', 'Seema Verma');
-            $message->subject($this->details['email']);
+            $message->subject($this->details['subject']);
             $message->to($this->details['email']);
         });
     }
